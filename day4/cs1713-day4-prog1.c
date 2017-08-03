@@ -1,7 +1,4 @@
-#include <stdio.h>
-#include <malloc.h>
-#include <stdlib.h>
-#include <math.h> 
+#include "common.h" 
 
 typedef struct complexNum
 {
