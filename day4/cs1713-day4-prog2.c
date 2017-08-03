@@ -7,12 +7,13 @@ int main(int argc, char* argv[])
    FILE* fp;
    char *line = NULL;
    size_t len = 0;
-   ssize_t read;
+   ssize_t read/*, readKey*/;
    char* token/*, *subtoken, *str*/;
    char* saveptr1/*, *saveptr2*/;
    int keywords = 0/*, i=0*/;
    const char* delim = " ";
-
+   char* keywordsInC[] = {"auto","break","case","char","const","continue","default","do","double","else","enum","extern","float","for","goto","if","int","long","register","return","short","signed","sizeof","static","struct","switch","typedef","union","unsigned","void","volatile","while"};
+   int i=0;
    if(NULL == (fp = fopen(argv[1],"r")))
    {
      token = NULL;
@@ -36,7 +37,13 @@ int main(int argc, char* argv[])
           break;
         printf(" %s ", subtoken);
       }*/
-      keywords += strlen(token);
+      while(i != 32)
+      {
+        printf("\nchecking for %s\n", keywordsInC[i]);
+        if(strstr(token, keywordsInC[i]))
+         keywords++;
+        i++;  
+      }
     }
     printf("\nNo. of keywords: %d\n", keywords);
    }
