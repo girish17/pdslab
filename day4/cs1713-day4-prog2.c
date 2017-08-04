@@ -7,11 +7,11 @@ int main(int argc, char* argv[])
    FILE* fp;
    char *line = NULL;
    size_t len = 0;
-   ssize_t read/*, readKey*/;
-   char* token/*, *subtoken, *str*/;
-   char* saveptr1/*, *saveptr2*/;
+   ssize_t read;
+   char* token;
+   char* saveptr1;
    int keywords = 0/*, i=0*/;
-   const char* delim = " ";
+   const char* delim = "{\"\'=*;:()| ";
    char* keywordsInC[] = {"auto","break","case","char","const","continue","default","do","double","else","enum","extern","float","for","goto","if","int","long","register","return","short","signed","sizeof","static","struct","switch","typedef","union","unsigned","void","volatile","while"};
    int i=0;
    if(NULL == (fp = fopen(argv[1],"r")))
@@ -23,26 +23,13 @@ int main(int argc, char* argv[])
    {
     while((read = getline(&line, &len, fp)) != -1)
     {
-      //printf("Retrieved line of length %zu :\n", read);
-      //printf("%s", line);
       token = strtok_r(line, delim, &saveptr1);
-      //printf("\nTokens: \n");
- 
-      /*for(str=token; ;str=NULL)
-      {*/
-        printf(" %s ", token);
-        printf("\n%zu number of tokens\n", strlen(token));
-        /*subtoken = strtok_r(str, delim, &saveptr2);
-        if(subtoken == NULL)
-          break;
-        printf(" %s ", subtoken);
-      }*/
-      while(i != 32)
+      for(i=0; i<32; i++)
       {
-        printf("\nchecking for %s\n", keywordsInC[i]);
-        if(strstr(token, keywordsInC[i]))
-         keywords++;
-        i++;  
+        if(strcmp(token, keywordsInC[i]) == 0)
+        {
+          keywords++; 
+        }
       }
     }
     printf("\nNo. of keywords: %d\n", keywords);
