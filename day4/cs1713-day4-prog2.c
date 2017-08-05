@@ -1,20 +1,18 @@
 #include "common.h"
 
-int main(int argc, char* argv[])
+int* countKeywordOccurances(const char* keywords[], char* cFile)
 {
- if(argc == 2)
- {
    FILE* fp;
    char *line = NULL;
    size_t len = 0;
    ssize_t read;
    char* token;
    char* saveptr1;
-   int keywords = 0/*, i=0*/;
    const char* delim = "{\"\'=*;:()| ";
-   char* keywordsInC[] = {"auto","break","case","char","const","continue","default","do","double","else","enum","extern","float","for","goto","if","int","long","register","return","short","signed","sizeof","static","struct","switch","typedef","union","unsigned","void","volatile","while"};
-   int i=0;
-   if(NULL == (fp = fopen(argv[1],"r")))
+   int i;
+   static int count[32];
+
+   if(NULL == (fp = fopen(cFile,"r")))
    {
      token = NULL;
      printf("\nError opening file\n");
@@ -26,14 +24,37 @@ int main(int argc, char* argv[])
       token = strtok_r(line, delim, &saveptr1);
       for(i=0; i<32; i++)
       {
-        if(strcmp(token, keywordsInC[i]) == 0)
+        if(strcmp(token, keywords[i]) == 0)
         {
-          keywords++; 
+          count[i]++; 
         }
       }
-    }
-    printf("\nNo. of keywords: %d\n", keywords);
+     }
    }
+   fclose(fp);
+   return count;
+}
+
+int main(int argc, char* argv[])
+{
+ const char* keywordsInC[] = {"auto","break","case","char","const","continue","default","do","double","else","enum","extern","float","for","goto","if","int","long","register","return","short","signed","sizeof","static","struct","switch","typedef","union","unsigned","void","volatile","while"};
+ 
+ if(argc == 2)
+ {
+   int i=0, totalKeywords=0;
+   static int* countOfKeywords;
+   countOfKeywords = countKeywordOccurances(keywordsInC, argv[1]);
+   printf("\n**************************************************************************\n");
+   for(i=0; i<32; i++)
+   {
+     if(countOfKeywords[i] > 0)
+     {
+       printf("\nNo.of times %s keyword occurs: %d\n", keywordsInC[i], countOfKeywords[i]);
+       totalKeywords = totalKeywords + countOfKeywords[i];
+     }
+   }
+   printf("\nTotal no. of occurrances of keywords in %s: %d\n", argv[1], totalKeywords);
+   printf("\n***************************************************************************\n");
  }
  else
  {
