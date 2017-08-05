@@ -1,3 +1,4 @@
+/*Sample c program used to test cs1713-day4-prog2.o*/
 #include "common.h"
 
 int main(void)

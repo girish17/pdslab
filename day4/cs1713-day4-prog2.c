@@ -1,3 +1,11 @@
+/*---------------------------------------------------------------------------
+ Name: Girish M
+ Roll number: cs1713
+ Date: 3 August 2017
+ Program description: Write a program to count the number of occurrences of
+ each keyword in a C program.
+ Acknowledgements:
+ ---------------------------------------------------------------------------*/
 #include "common.h"
 
 int* countKeywordOccurances(const char* keywords[], char* cFile)

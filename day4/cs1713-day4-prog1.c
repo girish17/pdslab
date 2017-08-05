@@ -1,4 +1,13 @@
-#include "common.h" 
+/*---------------------------------------------------------------------------
+ Name: Girish M
+ Roll number: cs1713
+ Date: 3 August 2017
+ Program description: Define a structure to represent complex numbers.
+ Using this definition, write a function that takes as input 3 real numbers,
+ a, b, and c, and returns the two roots of the quadratic equation ax2 +bx+c=0.
+ Acknowledgements:
+ ---------------------------------------------------------------------------*/
+#include "common.h"
 
 typedef struct complexNum
 {
