@@ -11,46 +11,89 @@
  ------------------------------------------------------------------------------------------------------------------*/
 
 #include "common.h"
+#include <regex.h>
+
+int match(const char *string, char *pattern)
+{
+    int    status;
+    regex_t    re;
+
+    if (regcomp(&re, pattern, REG_EXTENDED|REG_NOSUB) != 0) {
+        return(0);      /* report error */
+    }
+    status = regexec(&re, string, (size_t) 0, NULL, 0);
+    regfree(&re);
+    if (status != 0) {
+        return(0);      /* report error */
+    }
+    return(1);
+}
 
 int uniquify(int *a, int n)
 {
-    int i, no_distinct_int = 0;
-    for(i=0; i<n; i++)
+    int i;
+    int no_distinct_int = 1;
+    /*printf("\nNo. of non-negative integers: %d, starting with %d and ending with %d\n",n, a[1], a[n-1]);*/
+    for(i=1; i<n-1; i++)
     {
-        if(a[i] != -1)
-          no_distinct_int++;
-        for(j=i+1; j<n; j++)
-        {
-            if(a[i] == a[j])
-                a[j] = -1;
-        }
+            if(a[i] != a[i+1])
+            {
+	      no_distinct_int++; 
+              /*printf(" %d %d : %d ",a[i], a[i+1], n);*/
+            }
     }
     if(no_distinct_int > 0)
         return no_distinct_int;
+    else if(no_distinct_int == 1)
+        return 1;
     else
         return -1;
 }
 
 int main(int argc, char* argv[])
 {
-    const int arr_size = 100 /*at most 100 elements*/
+    const int arr_size = 100; /*at most 100 elements*/
     int arr[arr_size], i=1;
-    int retVal;
+    int retVal, num1, num2;
     char isInIncreasingOrder = 1;
+    char* pattern = "^[+]?[0-9]+$";
+
     if((argc >  1) && (argc < arr_size+1))
     {
         /*check if args in increasing order*/
         while(i != (argc-1))
         {
-            if(argv[i] > argv[i+1])
+          if(match(argv[i],pattern))
+          {
+            if(match(argv[i+1],pattern))
             {
-                isInIncreasingOrder = 0;
+               num1 = atoi(argv[i]);
+               num2 = atoi(argv[i+1]);
+               if(num1 > num2)
+               {
+                 isInIncreasingOrder = 0;
+               }
+               else
+               {
+                 arr[i] = num1;
+                 arr[i+1] = num2;
+               }
             }
-            i++;
+            else
+               printf("\n%s is not a valid number. Will be considered as zero.\n", argv[i+1]);
+          }
+          else
+          {
+            printf("\n%s is not a valid number. Will be considered as zero.\n", argv[i]);
+          }
+          i++;
         }
-        if(isInInceasingOrder)
+        if(isInIncreasingOrder)
         {
-            retVal = uniquify(arr, argc-1);
+            /*printf("\nFollowing numbers are in increasing order:\n");
+            for(i=1; i<argc; i++)
+              printf(" %d ", arr[i]);*/
+            retVal = uniquify(arr, argc);
             if(retVal != -1)
             {
                 printf("\nNo. of distinct integers %d\n", retVal);
