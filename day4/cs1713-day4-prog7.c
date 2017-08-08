@@ -11,10 +11,33 @@
  ------------------------------------------------------------------------------------------------------------------*/
 #include "common.h"
 
+char isAlreadyPresent(int a, int* arr, int size)
+{
+  int i;
+  for(i=0; i<size; i++)
+  {
+    if(arr[i] == a)
+     return 1;
+  }
+  return 0;
+}
+
 int* unionOfTwoSets(int* A, int* B, int sizeA, int sizeB)
 {
-  
-  return 0;
+  int* C = (int*) malloc(sizeof(sizeA+sizeB));
+  int i, j, k=0;
+
+  for(i=0; i<sizeA; i++)
+     C[i]=A[i];
+  for(j=i; j<(sizeA+sizeB); j++)
+  {
+    if(isAlreadyPresent(B[k], A, sizeA))
+    {
+     C[j]=B[k];
+     k++;
+    }
+  }
+  return C;
 
 }
 
@@ -39,13 +62,13 @@ void powerSet(int* A, int sizeA)
 int main(int argc, char* argv[])
 {
  const int SIZE=100;
- unsigned int A[SIZE], B[SIZE];
- unsigned int i
+ int A[SIZE], B[SIZE];
+ unsigned int i, sizeA, sizeB;
  
  if(argc == 3)
  {
-  int sizeA = atoi(argv[1]);
-  int sizeB = atoi(argv[2]);
+  sizeA = atoi(argv[1]);
+  sizeB = atoi(argv[2]);
 
   printf("\nEnter elements of set A:\n");
   for(i=0; i<sizeA; i++)
@@ -61,6 +84,10 @@ int main(int argc, char* argv[])
   }
 
   printf("\nA∪B: ");
+  int* unionArray = unionOfTwoSets(A, B, sizeA, sizeB);
+  
+  for(i=0; i<(sizeA+sizeB); i++)
+  
   printf("\nA∩B: ");
   printf("\nA ⊆ B: ");
   printf("\nPower set of A: ");
