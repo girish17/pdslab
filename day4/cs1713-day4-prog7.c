@@ -94,7 +94,7 @@ int main(int argc, char* argv[])
   printf("\nPower set of B: ");
  }
  else
-    printf("\nUsage: ./cs1713-day4-prog7.o sizeA sizeB\n");
+    ERR_MESG("\nUsage: ./cs1713-day4-prog7.o sizeA sizeB\n");
  
  return 0;
 }

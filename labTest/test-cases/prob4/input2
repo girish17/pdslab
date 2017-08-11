@@ -1,0 +1,50 @@
+#include "common.h"
+
+int main(int ac, char *av[])
+{
+    int *A, *B, i, j;
+    unsigned int lengthA, lengthB, num_matches = 0;
+
+    /* sanity check of command line arguments */
+    if (ac < 2)
+        ERR_MESG("Usage: string-matching <number of elements in A> [elements of A] [elements of B]");
+    lengthA = atoi(av[1]);
+    if (ac < lengthA + 2)
+        ERR_MESG("string-matching: not enough command-line arguments");
+    lengthB = ac - lengthA - 2;
+
+    /* initialise the arrays */
+    if (NULL == (A = Malloc(lengthA, int)) ||
+        NULL == (B = Malloc(lengthB, int)))
+        ERR_MESG("main: out of memory\n");
+    for (i = 0; i < lengthA; i++)
+        A[i] = atoi(av[i+2]);
+    for (i = 0; i < lengthB; i++)
+        B[i] = atoi(av[i+lengthA + 2]);
+
+#if 0
+    for (i = 0; i < lengthA; i++)
+        printf("%d ", A[i]);
+    putchar('\n');
+    for (i = 0; i < lengthB; i++)
+        printf("%d ", B[i]);
+    putchar('\n');
+#endif
+
+    if (lengthA < lengthB) {
+        printf("No matches\n");
+        return 0;
+    }
+
+    for (i = 0; i <= lengthA - lengthB; i++) {
+        for (j = 0; j < lengthB; j++) {
+            if (A[i+j] != B[j])
+                break;
+        }
+        if (j == lengthB)
+            num_matches++;
+    }
+    printf("%d matches\n", num_matches);
+
+    return 0;
+}

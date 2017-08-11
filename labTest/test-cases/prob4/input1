@@ -1,0 +1,28 @@
+#include "common.h"
+
+int uniquify(unsigned int *a, unsigned int n) {
+    int i, j;
+    if (n==0) return 0;
+    for (i = 0, j = 1; j < n; j++) {
+        if (a[j] < a[i])
+            return -1;    // array is not sorted in increasing order
+        if (a[j] > a[i]) // a[j] is the next distinct integer
+            a[++i] = a[j];
+    }
+    return i+1;
+}
+
+int main(int ac, char *av[])
+{
+    unsigned int A[100];
+    int num_distinct, i;
+
+    for (i = 0; i < ac-1; i++)
+        A[i] = atoi(av[i+1]);
+    num_distinct = uniquify(A, i);
+    for (i = 0; i < num_distinct; i++)
+        printf("%d ", A[i]);
+    putchar('\n');
+
+    return 0;
+}
