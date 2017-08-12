@@ -1,0 +1,31 @@
+cs1701:x:11701:501:Panchalika Pal:/user1/student/mtc/mtc2017/cs1701:/bin/bash
+cs1702:x:11702:501:Sayantan Kumar:/user1/student/mtc/mtc2017/cs1702:/bin/bash
+cs1703:x:11703:501:Mukku M Manohar:/user1/student/mtc/mtc2017/cs1703:/bin/bash
+cs1704:x:11704:501:SouptikMukhopadhy:/user1/student/mtc/mtc2017/cs1704:/bin/bash
+cs1705:x:11705:501:Bihan Sen:/user1/student/mtc/mtc2017/cs1705:/bin/bash
+cs1706:x:11706:501:Santanu Datta:/user1/student/mtc/mtc2017/cs1706:/bin/bash
+cs1707:x:11707:501:Rajni Kushwaha:/user1/student/mtc/mtc2017/cs1707:/bin/bash
+cs1708:x:11708:501:Vinayak L Bhogan:/user1/student/mtc/mtc2017/cs1708:/bin/bash
+cs1709:x:11709:501:Sangeet Jaiswal:/user1/student/mtc/mtc2017/cs1709:/bin/bash
+cs1710:x:11710:501:Ankit Varshney:/user1/student/mtc/mtc2017/cs1710:/bin/bash
+cs1711:x:11711:501:Love Varshney:/user1/student/mtc/mtc2017/cs1711:/bin/bash
+cs1712:x:11712:501:Anirban Karmakar:/user1/student/mtc/mtc2017/cs1712:/bin/bash
+cs1713:x:11713:501:Girish M:/user1/student/mtc/mtc2017/cs1713:/bin/bash
+cs1714:x:11714:501:Kushal Bose:/user1/student/mtc/mtc2017/cs1714:/bin/bash
+cs1715:x:11715:501:ShayakChakraborty:/user1/student/mtc/mtc2017/cs1715:/bin/bash
+cs1716:x:11716:501:Mohan Kr. Dangi:/user1/student/mtc/mtc2017/cs1716:/bin/bash
+cs1717:x:11717:501:Shreyas Gupta:/user1/student/mtc/mtc2017/cs1717:/bin/bash
+cs1718:x:11718:501:Suraj Singh:/user1/student/mtc/mtc2017/cs1718:/bin/bash
+cs1719:x:11719:501:Ravisha Divyanshi:/user1/student/mtc/mtc2017/cs1719:/bin/bash
+cs1720:x:11720:501:Sourav Aich:/user1/student/mtc/mtc2017/cs1720:/bin/bash
+cs1721:x:11721:501:Sourav Karmakar:/user1/student/mtc/mtc2017/cs1721:/bin/bash
+cs1722:x:11722:501:Pabani Das:/user1/student/mtc/mtc2017/cs1722:/bin/bash
+cs1723:x:11723:501:Aditya Panda:/user1/student/mtc/mtc2017/cs1723:/bin/bash
+cs1724:x:11724:501:Udita Ghosh:/user1/student/mtc/mtc2017/cs1724:/bin/bash
+cs1725:x:11725:501:KushalSinganporia:/user1/student/mtc/mtc2017/cs1725:/bin/bash
+cs1726:x:11726:501:Dipyan Das:/user1/student/mtc/mtc2017/cs1726:/bin/bash
+cs1727:x:11727:501:Sudeep Choudhury:/user1/student/mtc/mtc2017/cs1727:/bin/bash
+cs1728:x:11728:501:SoubornoChoudhury:/user1/student/mtc/mtc2017/cs1728:/bin/bash
+cs1729:x:11729:501:Soumya Kanti Das:/user1/student/mtc/mtc2017/cs1729:/bin/bash
+cs1730:x:11730:501:Abijith K P:/user1/student/mtc/mtc2017/cs1730:/bin/bash
+cs1731:x:11731:501:Vidhyakamakshi V:/user1/student/mtc/mtc2017/cs1731:/bin/bash
