@@ -1,6 +1,7 @@
 #ifndef COMMON_H
 #define COMMON_H
 
+#define null 0
 #include <assert.h>
 #include <ctype.h>
 #include <errno.h>
