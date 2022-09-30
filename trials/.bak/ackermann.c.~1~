@@ -1,0 +1,23 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+unsigned A(unsigned m, unsigned n) {
+  if(m==0)
+    return n+1;
+  if(n==0)
+    return A(m,1);
+  else
+    return A(m, A(m+1, n))
+}
+
+int main(int argc, char** argv) {
+  unsigned m, n;
+  if(argc == 2) {
+    m = (unsigned) atoi(argv[1]);
+    n = (unsigned) atoi(argv[2]);
+    printf("A(%u, %u) is %u\n", m, n, A(m+1,n+1));
+  } else {
+    printf("Invalid input. Try ./ackermann.out <non-negative integer> <non-negative integer>\n");
+  }
+  return 0;
+}
