@@ -1,6 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+int A1(int m, int n) {
+  return ((m==0) ? n+1 : ((n==0) ? A1(m-1, 1) : A1(m-1, A1(m, n-1))));
+}
+
 int A(int m, int n) {
   printf("\nCalculating A(%d,%d)", m, n);
   if(m==0)
@@ -19,6 +23,7 @@ int main(int argc, char** argv) {
     
     if(m >= 0 && n >= 0) {
       printf("\nA(%d, %d) is %d\n", m, n, A(m,n));
+      //printf("\nA1(%d, %d) is %d\n", m, n, A1(m,n));
     }
     else {
       printf("m and n should non-negative\n");
