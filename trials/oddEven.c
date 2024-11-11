@@ -1,6 +1,17 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+/*
+ * Problem based on Godel's undecidability theorem:
+ * Let f: N -> N be defined by
+ * 
+ * f(n) =  n/2  n even
+ *         3n+1  n odd;
+ * then, for every n, there is an integer i such that f^i (n) = 1.
+ * 
+ * */
+
+
 int oddEven(int num) {
   int odd, even;
   static int functionCalls;

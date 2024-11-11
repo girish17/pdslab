@@ -1,3 +1,10 @@
+/*
+ * Ackermann's function is defined recursively by
+ * a(i,n) = if i=0 then n+1
+ *          else if n=0 then a(i-1,1)
+ *          else a(i-1, a(i,n-1))
+ */
+
 #include <stdio.h>
 #include <stdlib.h>
 
