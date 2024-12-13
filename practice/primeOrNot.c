@@ -1,11 +1,15 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <math.h>
+
 char primeOrNot(int num)
 {
  int numOfFactors = 2, i;
- if(num > 2)
+ if(num == 2)
+   return 'a';
+ else if(num > 2)
  {
-  for(i=1; i<=num-1; i++)
+  for(i=2; i<=floor(sqrt(num)); i++)
   {
     if(num%i == 0)
      numOfFactors++;
